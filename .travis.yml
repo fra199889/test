@@ -4,10 +4,17 @@ language: java
 jdk:
  - oraclejdk13
 
+addons:
+ sonarcloud:
+  organization: "fra199889"
+  token:
+   secure: "b9b70fd7830345994efa223319ac45de91b22071"
 
 script: 
 
 - ant build
+- mvn clean install sonar:sonar
+- sonar-scanner
 
 
 
